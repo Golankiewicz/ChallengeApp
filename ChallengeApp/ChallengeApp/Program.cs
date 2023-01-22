@@ -1,28 +1,22 @@
-﻿var name = "Ewa";
-var sex = "kobieta";
-int age = 33;
+﻿int number = 4566;
+string numberInString = number.ToString();//zamiana liczby na string
+char[] letters = numberInString.ToArray();//zamiana stringa na tablicę char
 
-if (sex == "kobieta" && age < 30)
+
+for (int i = 0; i < 10; i++)
 {
-    Console.WriteLine("Kobieta poniżej 30 lat");
+    int counter = 0;
+    foreach (char letter in letters)
+    {
+        int charInNumber = letter - '0';//zamiana char na liczbę
+        if (charInNumber == i)
+        {
+            counter++;
+        }
+    }
+    Console.WriteLine(i + "=>" + counter);
+
 }
 
-else if (name == "Ewa" && age == 33)
-{
-    Console.WriteLine("Ewa, lat " + age);
-}
 
-else if (sex == "mężczyzna" && age < 18)
-{
-    Console.WriteLine("Niepełnoletni Mężczyzna");
-}
 
-else if (name == "Paweł" && sex == "mężczyzna" && age == 59)
-{
-    Console.WriteLine("Paweł, szczęśliwy mężczyzna, lat " + age);
-}
-
-else
-{
-    Console.WriteLine("Osobnik niezidentyfikowany");
-}
