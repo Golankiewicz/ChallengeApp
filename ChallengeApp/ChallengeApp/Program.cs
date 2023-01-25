@@ -1,4 +1,4 @@
-﻿int number = 4566;
+﻿int number = 314566;
 string numberInString = number.ToString();//zamiana liczby na string
 char[] letters = numberInString.ToArray();//zamiana stringa na tablicę char
 
