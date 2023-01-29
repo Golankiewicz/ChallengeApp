@@ -1,4 +1,6 @@
-﻿Employee stefan = new Employee("Stefan", "Batory", 41);
+﻿using ChallengeApp;
+
+Employee stefan = new Employee("Stefan", "Batory", 41);
 Employee jan = new Employee("Jan", "Sobieski", 55);
 Employee zygmunt = new Employee("Zygmunt", "Waza", 32);
 
@@ -9,16 +11,16 @@ stefan.AddPoints(5);
 stefan.AddPoints(6);
 
 jan.AddPoints(5);
-jan.AddPoints(9);
-jan.AddPoints(9);
+jan.AddPoints(1);
+jan.AddPoints(1);
 jan.AddPoints(3);
 jan.AddPoints(4);
 
 zygmunt.AddPoints(2);
 zygmunt.AddPoints(3);
-zygmunt.AddPoints(7);
+zygmunt.AddPoints(1);
 zygmunt.AddPoints(8);
-zygmunt.AddPoints(9);
+zygmunt.AddPoints(1);
 
 List<Employee> employees = new List<Employee>()
 { stefan,jan, zygmunt };
@@ -43,35 +45,4 @@ Console.WriteLine($"The best employee is: {bestEmployee.Name} {bestEmployee.Surn
 
 
 
-
-class Employee
-{
-    private List<int> points = new List<int>();
-    public string Name { get; private set; }
-    public string Surname { get; private set; }
-    public int Age { get; private set; }
-    public int Points
-    {
-        get
-        {
-            return this.points.Sum();
-        }
-    }
-
-
-
-    public Employee(string name, string surname, int age)
-    {
-        this.Name = name;
-        this.Surname = surname;
-        this.Age = age;
-    }
-
-    public void AddPoints(int point)
-    {
-        points.Add(point);
-    }
-
-
-}
 
