@@ -1,4 +1,32 @@
-﻿using ChallengeApp;
+﻿
+
+using ChallengeApp;
+
+User user1 = new User("Adam","abcd1");
+User user2 = new User("Ewa","abcd1");
+User user3 = new User("Jacek","abcd1");
+User user4 = new User("Agatka","abcd1");
+
+user2.AddScore(5);
+user2.AddScore(16);
+
+
+
+Console.WriteLine(user2.Result);
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*using ChallengeApp;
 
 Employee stefan = new Employee("Stefan", "Batory", 41);
 Employee jan = new Employee("Jan", "Sobieski", 55);
@@ -41,8 +69,5 @@ foreach (var employee in employees)
 Console.WriteLine($"The best employee is: {bestEmployee.Name} {bestEmployee.Surname}" +
     $" with {bestEmployee.Points} points");
 
-
-
-
-
+*/
 
