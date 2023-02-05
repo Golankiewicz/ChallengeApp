@@ -28,11 +28,19 @@ namespace ChallengeApp
 
         }
 
+        // drugi konstruktor
+
+        public User(string login)
+        {
+            this.Login = login;
+        }
+
         //metoda
 
         public void AddScore(int number)
         {
             this.score.Add(number);
+            
         }
 
     }

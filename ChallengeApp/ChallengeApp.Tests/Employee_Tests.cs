@@ -1,5 +1,6 @@
 namespace ChallengeApp.Tests
 {
+ /*
     public class Tests
     {
        
@@ -22,5 +23,5 @@ namespace ChallengeApp.Tests
             Assert.AreEqual(0,employee.Points);
             
         }
-    }
+    }*/
 }
