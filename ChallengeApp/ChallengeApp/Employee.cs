@@ -13,7 +13,7 @@ namespace ChallengeApp
         public string Name { get; private set; }
         public string Surname { get; private set; }
 
-        public void AddGrade(float grade)
+        public void AddGrade(float grade)//podstawowa metoda dla grade w postaci float
         {
             if (grade >= 0 && grade <= 100)
             {
@@ -25,7 +25,7 @@ namespace ChallengeApp
             }
         }
 
-        public void AddGrade(string grade)
+        public void AddGrade(string grade) //metoda dla grade w postaci string
         {
             if (float.TryParse(grade, out float result))
             {
@@ -38,19 +38,19 @@ namespace ChallengeApp
            
         }
 
-        public void AddGrade(int grade)
+        public void AddGrade(int grade) //metoda dla grade w postaci int
         {
             var intGradeToFloat = (float)grade;
             this.AddGrade(intGradeToFloat);
         }
 
-        public void AddGrade(double grade)
+        public void AddGrade(double grade)//metoda dla grade w postaci double
         {
             var doubleGradeToFloat = (float)grade;
             this.AddGrade(doubleGradeToFloat);
         }
 
-        public void AddGrade(long grade)
+        public void AddGrade(long grade)//metoda dla grade w postaci long
         {
             var longGradeToFloat = (float)grade;
             this.AddGrade(longGradeToFloat);
