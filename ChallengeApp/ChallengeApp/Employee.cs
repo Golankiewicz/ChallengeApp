@@ -10,8 +10,10 @@ namespace ChallengeApp
             this.Surname = surname;
         }
 
+
         public string Name { get; private set; }
         public string Surname { get; private set; }
+
 
         public void AddGrade(float grade)//podstawowa metoda dla grade w postaci float
         {
@@ -24,7 +26,8 @@ namespace ChallengeApp
                 Console.WriteLine($"{grade} is an invalid grade");
             }
         }
-
+        
+          
         public void AddGrade(string grade) //metoda dla grade w postaci string
         {
             if (float.TryParse(grade, out float result))
@@ -37,24 +40,38 @@ namespace ChallengeApp
             }
 
         }
-
-        public void AddGrade(int grade) //metoda dla grade w postaci int
+        
+        public void AddGrade(char grade)//metoda dla grade w postaci literowej
         {
-            var intGradeToFloat = (float)grade;
-            this.AddGrade(intGradeToFloat);
+
+            switch (grade)
+            {
+                case 'A':
+                case 'a':
+                    this.grades.Add(100);
+                    break;
+                case 'B':
+                case 'b':
+                    this.grades.Add(80);
+                    break;
+                case 'C':
+                case 'c':
+                    this.grades.Add(60);
+                    break;
+                case 'D':
+                case 'd':
+                    this.grades.Add(40);
+                    break;
+                case 'E':
+                case 'e':
+                    this.grades.Add(20);
+                    break;
+                default:
+                    Console.WriteLine("Wrong letter");
+                    break;
+            }
         }
 
-        public void AddGrade(double grade)//metoda dla grade w postaci double
-        {
-            var doubleGradeToFloat = (float)grade;
-            this.AddGrade(doubleGradeToFloat);
-        }
-
-        public void AddGrade(long grade)//metoda dla grade w postaci long
-        {
-            var longGradeToFloat = (float)grade;
-            this.AddGrade(longGradeToFloat);
-        }
 
         public Statistics GetStatistics()
         {
@@ -70,8 +87,28 @@ namespace ChallengeApp
                 statistics.Average += grade;
             }
             statistics.Average = statistics.Average / this.grades.Count;
+
+
+            switch (statistics.Average)
+            {
+                case var average when average >= 80:
+                    statistics.AverageLetter = 'A';
+                    break;
+                case var average when average >= 60:
+                    statistics.AverageLetter = 'B';
+                    break;
+                case var average when average >= 40:
+                    statistics.AverageLetter = 'C';
+                    break;
+                case var average when average >= 20:
+                    statistics.AverageLetter = 'D';
+                    break;
+                default:
+                    statistics.AverageLetter = 'E';
+                    break;
+            }
             return statistics;
         }
-        
+
     }
 }
