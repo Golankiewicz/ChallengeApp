@@ -5,16 +5,24 @@ Console.WriteLine("========================================");
 Console.WriteLine();
 
 var employee = new Employee("Janek", "Kowalski");
+
 while (true)
 {
     Console.WriteLine("Podaj ocenę: ");
     var input = Console.ReadLine();
-  
+
     if (input == "q")
     {
         break;
     }
-    employee.AddGrade(input);
+    try
+    {
+        employee.AddGrade(input);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine(e.Message);
+    }
 }
 
 
