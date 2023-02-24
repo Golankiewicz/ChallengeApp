@@ -1,18 +1,20 @@
 ﻿
 namespace ChallengeApp
 {
-    public class Employee
+    public class Employee : Person
     {
         private List<float> grades = new List<float>();
-        public Employee(string name, string surname)
+        public Employee(string name, string surname, string sex)
+            : base (name, surname, sex)
         {
-            this.Name = name;
-            this.Surname = surname;
+
         }
 
+        public Employee(string name, string surname)
+            : base(name, surname)
+        {
 
-        public string Name { get; private set; }
-        public string Surname { get; private set; }
+        }
 
 
         public void AddGrade(float grade)//podstawowa metoda dla grade w postaci float
@@ -23,12 +25,12 @@ namespace ChallengeApp
             }
             else
             {
-               
+
                 throw new Exception("invalid grade value");
             }
         }
-        
-          
+
+
         public void AddGrade(string grade) //metoda dla grade w postaci string
         {
             if (float.TryParse(grade, out float result))
@@ -37,12 +39,12 @@ namespace ChallengeApp
             }
             else
             {
-              
+
                 throw new Exception("This string definitely cannot be converted to float");
             }
 
         }
-        
+
         public void AddGrade(char grade)//metoda dla grade w postaci literowej
         {
 
@@ -69,9 +71,9 @@ namespace ChallengeApp
                     this.grades.Add(20);
                     break;
                 default:
-                  
+
                     throw new Exception("Wrong letter");
-                   
+
             }
         }
 
