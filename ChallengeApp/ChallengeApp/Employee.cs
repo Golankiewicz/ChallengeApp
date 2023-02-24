@@ -4,17 +4,21 @@ namespace ChallengeApp
     public class Employee : Person
     {
         private List<float> grades = new List<float>();
-        public Employee(string name, string surname, string sex)
-            : base (name, surname, sex)
+        public Employee(string name, string surname, string sex, string department, string position)
+            : base(name, surname, sex)
         {
-
+            this.Department = department;
+            this.Position = position;
         }
 
-        public Employee(string name, string surname)
+        public Employee(string name, string surname, string position)
             : base(name, surname)
         {
-
+            this.Position = position;
         }
+
+        public string Department { get; private set; }
+        public string Position { get; private set; }
 
 
         public void AddGrade(float grade)//podstawowa metoda dla grade w postaci float
