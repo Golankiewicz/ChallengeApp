@@ -1,10 +1,10 @@
 ﻿
 namespace ChallengeApp
 {
-    public class Employee : IEmployee
+    public class Supervisor : IEmployee
     {
         private List<float> grades = new List<float>();
-        public Employee(string name, string surname, string position)
+        public Supervisor(string name, string surname, string position)
 
         {
             this.Name = name;
@@ -17,8 +17,7 @@ namespace ChallengeApp
         public string Name { get; private set; }
         public string Surname { get; private set; }
         public string Position { get; private set; }
-
-
+        
         public void AddGrade(float grade)//podstawowa metoda dla grade w postaci float
         {
             if (grade >= 0 && grade <= 100)
@@ -33,18 +32,77 @@ namespace ChallengeApp
         }
 
 
-        public void AddGrade(string grade) //metoda dla grade w postaci string
+
+        public void AddGrade(string grade)//metoda dla grade w postaci stringa liczbowego
         {
-            if (float.TryParse(grade, out float result))
-            {
-                this.AddGrade(result);
-            }
-            else
-            {
 
-                throw new Exception("This string definitely cannot be converted to float");
-            }
+            switch (grade)
+            {
+                case "6":
+                    this.grades.Add(100);
+                    break;
+                case "6-":
+                case "-6":
+                    this.grades.Add(95);
+                    break;
+                case "5+":
+                case "+5":
+                    this.grades.Add(85);
+                    break;
+                case "5":
+                    this.grades.Add(80);
+                    break;
+                case "5-":
+                case "-5":
+                    this.grades.Add(75);
+                    break;
+                case "4+":
+                case "+4":
+                    this.grades.Add(65);
+                    break;
+                case "4":
+                    this.grades.Add(60);
+                    break;
+                case "4-":
+                case "-4":
+                    this.grades.Add(55);
+                    break;
+                case "3+":
+                case "+3":
+                    this.grades.Add(45);
+                    break;
+                case "3":
+                    this.grades.Add(40);
+                    break;
+                case "3-":
+                case "-3":
+                    this.grades.Add(35);
+                    break;
+                case "2+":
+                case "+2":
+                    this.grades.Add(25);
+                    break;
+                case "2":
+                    this.grades.Add(20);
+                    break;
+                case "2-":
+                case "-2":
+                    this.grades.Add(15);
+                    break;
+                case "1+":
+                case "+1":
+                    this.grades.Add(5);
+                    break;
+                case "1":
+                    this.grades.Add(0);
+                    break;
+               
 
+                default:
+
+                    throw new Exception("Wrong grade - should be 1 till 6 ; press q to quit");
+
+            }
         }
 
         public void AddGrade(char grade)//metoda dla grade w postaci literowej

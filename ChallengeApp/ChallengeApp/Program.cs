@@ -4,7 +4,8 @@ Console.WriteLine("Witamy w programie oceny pracowników XYZ");
 Console.WriteLine("========================================");
 Console.WriteLine();
 
-var employee = new Employee("Janek", "Kowalski", "specialist");
+//var employee = new Employee("Janek", "Kowalski", "specialist");
+var supervisor = new Supervisor("Janek", "Kowalski", "manager");
 
 while (true)
 {
@@ -17,7 +18,8 @@ while (true)
     }
     try
     {
-        employee.AddGrade(input);
+        //employee.AddGrade(input);
+        supervisor.AddGrade(input);
     }
     catch (Exception e)
     {
@@ -26,10 +28,10 @@ while (true)
 }
 
 
-var statistics = employee.GetStatistics();
-Console.Write(employee.Name +" ");
-Console.Write(employee.Surname +" ");
-Console.WriteLine(employee.Position);
+var statistics = supervisor.GetStatistics();
+Console.Write(supervisor.Name +" ");
+Console.Write(supervisor.Surname +" ");
+Console.WriteLine(supervisor.Position);
 Console.WriteLine($"Average: {statistics.Average}");
 Console.WriteLine($"AverageLetter: {statistics.AverageLetter}");
 Console.WriteLine($"Min: {statistics.Min}");
