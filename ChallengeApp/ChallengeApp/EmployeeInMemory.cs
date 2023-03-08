@@ -1,25 +1,23 @@
 ﻿
+
 namespace ChallengeApp
 {
-    public class Employee : IEmployee
+    public class EmployeeInMemory : EmployeeBase
     {
         private List<float> grades = new List<float>();
-        public Employee(string name, string surname, string position)
-
+        public EmployeeInMemory(string name, string surname) : base(name, surname)
         {
-            this.Name = name;
-
-            this.Surname = surname;
-
         }
-
-        public string Name { get; private set; }
-        public string Surname { get; private set; }
-       
-
-
-        public void AddGrade(float grade)//podstawowa metoda dla grade w postaci float
+        /*
+        public override void SayHello()
         {
+            Console.WriteLine("Nadpisano nowe powitanie");
+            base.SayHello();
+        }*/
+
+        public override void AddGrade(float grade)
+        {
+
             if (grade >= 0 && grade <= 100)
             {
                 grades.Add(grade);
@@ -29,39 +27,12 @@ namespace ChallengeApp
 
                 throw new Exception("invalid grade value");
             }
+            
         }
 
-        public void AddGrade(int grade)//metoda dla grade w postaci int
+        public override void AddGrade(string grade)
         {
-            if (grade >= 0 && grade <= 100)
-            {
-                grades.Add(grade);
-            }
-            else
-            {
-
-                throw new Exception("invalid grade value");
-            }
-        }
-
-        public void AddGrade(double grade)//metoda dla grade w postaci double
-        {
-            if (grade >= 0 && grade <= 100)
-
-            {
-                var gradeFloat = (float)grade;
-                grades.Add(gradeFloat);
-            }
-            else;
-            {
-
-                throw new Exception("invalid grade value");
-            }
-        }
-
-
-        public void AddGrade(string grade) //metoda dla grade w postaci string
-        {
+           
             if (float.TryParse(grade, out float result))
             {
                 this.AddGrade(result);
@@ -71,12 +42,11 @@ namespace ChallengeApp
 
                 throw new Exception("This string definitely cannot be converted to float");
             }
-
         }
 
-        public void AddGrade(char grade)//metoda dla grade w postaci literowej
+        public override void AddGrade(char grade)
         {
-
+           
             switch (grade)
             {
                 case 'A':
@@ -106,8 +76,37 @@ namespace ChallengeApp
             }
         }
 
+        public override void AddGrade(int grade)
+        {
+            if (grade >= 0 && grade <= 100)
+            {
+                grades.Add(grade);
+            }
+            else
+            {
 
-        public Statistics GetStatistics()
+                throw new Exception("invalid grade value");
+            }
+           
+        }
+
+        public override void AddGrade(double grade)
+        {
+           
+            if (grade >= 0 && grade <= 100)
+
+            {
+                var gradeFloat = (float)grade;
+                grades.Add(gradeFloat);
+            }
+            else;
+            {
+
+                throw new Exception("invalid grade value");
+            }
+        }
+
+        public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
             statistics.Average = 0;
@@ -143,6 +142,6 @@ namespace ChallengeApp
             }
             return statistics;
         }
-
     }
+    
 }

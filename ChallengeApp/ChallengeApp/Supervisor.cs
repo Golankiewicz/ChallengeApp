@@ -17,7 +17,11 @@ namespace ChallengeApp
         public string Name { get; private set; }
         public string Surname { get; private set; }
         public string Position { get; private set; }
-        
+
+        string IEmployee.Name => throw new NotImplementedException();
+
+        string IEmployee.Surname => throw new NotImplementedException();
+
         public void AddGrade(float grade)//podstawowa metoda dla grade w postaci float
         {
             if (grade >= 0 && grade <= 100)
@@ -175,5 +179,34 @@ namespace ChallengeApp
             return statistics;
         }
 
+        void IEmployee.AddGrade(float grade)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IEmployee.AddGrade(int grade)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IEmployee.AddGrade(double grade)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IEmployee.AddGrade(string grade)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IEmployee.AddGrade(char grade)
+        {
+            throw new NotImplementedException();
+        }
+
+        Statistics IEmployee.GetStatistics()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
