@@ -43,33 +43,9 @@ namespace ChallengeApp
             }
         }
 
-        /*
-
-         public override void AddGrade(int grade)
-         {
-             if (grade >= 0 && grade <= 100)
-             {
-                 using (var writer = File.AppendText(fileName))
-                 {
-                     writer.WriteLine(grade);
-                 }
-
-                 if (GradeAdded != null)
-                 {
-                     GradeAdded(this, new EventArgs());
-                 }
-             }
-             else
-             {
-
-                 throw new Exception("invalid grade value");
-             }
-         }
-        */
-
         public override void AddGrade(int grade)
         {
-           var floatFromInt = (float)grade;
+            var floatFromInt = (float)grade;
             AddGrade(floatFromInt);
         }
 
@@ -120,14 +96,12 @@ namespace ChallengeApp
 
             }
         }
-       
+
         public override Statistics GetStatistics()
 
         {
             var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
+            
 
 
             if (File.Exists(fileName)) //odczyt z pliku i dodanie oceny do listy grades
@@ -137,7 +111,7 @@ namespace ChallengeApp
                     var line = reader.ReadLine();
                     while (line != null)
                     {
-                    var number = float.Parse(line);
+                        var number = float.Parse(line);
                         this.grades.Add(number);
                         line = reader.ReadLine();
                     }
@@ -145,33 +119,14 @@ namespace ChallengeApp
             }
 
 
-            foreach (var grade in this.grades) 
+            foreach (var grade in this.grades)
             {
-                statistics.Max = Math.Max(statistics.Max, grade);
-                statistics.Min = Math.Min(statistics.Min, grade);
-                statistics.Average += grade;
+                statistics.AddGrade(grade);
             }
-            statistics.Average = statistics.Average / this.grades.Count;
+            
 
 
-            switch (statistics.Average)
-            {
-                case var average when average >= 80:
-                    statistics.AverageLetter = 'A';
-                    break;
-                case var average when average >= 60:
-                    statistics.AverageLetter = 'B';
-                    break;
-                case var average when average >= 40:
-                    statistics.AverageLetter = 'C';
-                    break;
-                case var average when average >= 20:
-                    statistics.AverageLetter = 'D';
-                    break;
-                default:
-                    statistics.AverageLetter = 'E';
-                    break;
-            }
+           
             return statistics;
 
 
