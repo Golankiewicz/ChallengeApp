@@ -35,6 +35,9 @@ namespace ChallengeApp
             if (float.TryParse(grade, out float result))
             {
                 this.AddGrade(result);
+            }else if (char.TryParse(grade, out char letter))
+            {
+                this.AddGrade(letter);
             }
             else
             {

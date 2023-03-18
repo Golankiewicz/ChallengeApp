@@ -44,6 +44,10 @@ namespace ChallengeApp
             {
                 this.AddGrade(result);
             }
+            else if (char.TryParse(grade, out char letter))
+            {
+                this.AddGrade(letter);
+            }
             else
             {
 
